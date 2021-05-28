@@ -14,25 +14,24 @@
             background-color: yellow;
             color: purple;
         }
-
     </style>
 </head>
 
 <body>
-    
+
     <div class="container-fluid">
-        <h1 id="encabezado" class="text-center" >Pokemones</h1>
+        <h1 id="encabezado" class="text-center">Pokemones</h1>
         <div class="modelo" id="ejemploModelo" tabindex="-1" aria-labelledby="ejemploModeloLabel" aria-hidden="true">
             <div class="modelo-texto">
                 <div class="modelo-contenido">
 
-                    <div class="modelo-cuerpo col-auto d-inline-block bg-dark bg-gradient p-1 text-center">
+                    <div class="modelo-cuerpo col-auto d-block text-center">
 
                         <img id="img2" src="https://pokeapi.co/api/v2/pokemon/">
-                        <p id="nombre" >Nombre : </p>
-                        <p id="peso" >Peso :</p>
-                        <p id="altura" >Altura :</p>
-                        <p id="tipo" >Tipo :</p>
+                        <p id="nombre">Nombre : </p>
+                        <p id="peso">Peso :</p>
+                        <p id="altura">Altura :</p>
+                        <p id="tipo">Tipo :</p>
                     </div>
                 </div>
             </div>
@@ -48,7 +47,7 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function () {
-            for (let i = 200; i > 0; i--) {
+            for (let i = 200; i >= 1; i--) {
                 $.get("https://pokeapi.co/api/v2/pokemon/" + i, function (res) {
 
                 }, "json");
@@ -57,7 +56,7 @@
         });
         $(document).on("click", "img", function () {
             $("#img2").attr("src", $(this).attr("src"));
-            $.get("https://pokeapi.co/api/v2/pokemon/" + $(this).attr("id"), function (res) { 
+            $.get("https://pokeapi.co/api/v2/pokemon/" + $(this).attr("id"), function (res) {
                 $("#nombre").html("<p >Nombre : " + res.name + "</p>");
                 let aux = "";
                 for (let i = 0; i < res.types.length; i++) {
@@ -71,4 +70,5 @@
         });
     </script>
 </body>
+
 </html>
