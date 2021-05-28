@@ -12,22 +12,27 @@
     <style>
         * {
             background-color: yellow;
+            color: purple;
         }
+
     </style>
 </head>
 
 <body>
-    <h1 id="encabezado" class="text-center" >Pokemones</h1>
+    
     <div class="container-fluid">
+        <h1 id="encabezado" class="text-center" >Pokemones</h1>
         <div class="modelo" id="ejemploModelo" tabindex="-1" aria-labelledby="ejemploModeloLabel" aria-hidden="true">
             <div class="modelo-texto">
                 <div class="modelo-contenido">
 
-                    <div class="modelo-cuerpo">
-                        <p id="nombre" class="text-center">Nombre : </p>
-                        <p id="peso" class="text-center">Peso :</p>
-                        <p id="altura" class="text-center">Altura :</p>
-                        <p id="tipo" class="text-center">Tipo :</p>
+                    <div class="modelo-cuerpo col-auto d-inline-block bg-dark bg-gradient p-1 text-center">
+
+                        <img id="img2" src="https://pokeapi.co/api/v2/pokemon/">
+                        <p id="nombre" >Nombre : </p>
+                        <p id="peso" >Peso :</p>
+                        <p id="altura" >Altura :</p>
+                        <p id="tipo" >Tipo :</p>
                     </div>
                 </div>
             </div>
@@ -52,7 +57,7 @@
         });
         $(document).on("click", "img", function () {
             $("#img2").attr("src", $(this).attr("src"));
-            $.get("https://pokeapi.co/api/v2/pokemon/" + $(this).attr("id"), function (res) {
+            $.get("https://pokeapi.co/api/v2/pokemon/" + $(this).attr("id"), function (res) { 
                 $("#nombre").html("<p >Nombre : " + res.name + "</p>");
                 let aux = "";
                 for (let i = 0; i < res.types.length; i++) {
